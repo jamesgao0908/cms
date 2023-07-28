@@ -1,9 +1,16 @@
-const express = require('express')
+const express = require("express")
+const cors = require("cors")
 const app = express()
 
-app.get("/api",(req, res)=>{
-    res.json({ "users": ["user1", "user2", "user3"]})
+app.use(
+    cors({
+        origin: 'http://localhost:3000',
+    })
+)
+
+app.get("/data",(req,res)=>{
+    res.json({name: "James", favorite: "fishing"})
 })
 
-
-app.listen( 3000, ()=>{ console.log("started on port 3000")})
+const PORT = 5001
+app.listen(PORT)

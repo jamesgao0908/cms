@@ -1,23 +1,20 @@
-import { useEffect, useState } from "react";
-import axios from "axios";
+
+import React from 'react';
+import { Route, Routes } from 'react-router-dom';
+// import { Home  } from './Pages';
+import Home from './Pages/Home';
+import Product from './Pages/Product';
+import Layout from './utils/Layout';
 
 const App = () => {
 
-  const [data, setdata] = useState();
-  
-  useEffect(()=>{
-    axios.get('http://localhost:5001/data')
-    .then((e)=>{
-      console.log(e);
-      setdata(e.data)
-    })
-
-  },[]);
-
-  return (<div>
-    <h1>{ !!data && data.name}</h1>
-    <h2>{ !!data && data.favorite}</h2>
-  </div>)
+  return (
+    <Routes>
+      <Route path="/" element={<Home />} />
+      <Route path="/product/:id" element={<Product/>}/>
+      <Route path="/dashboard" element={<Layout />} />
+    </Routes>
+  )
 }
 
 export default App;

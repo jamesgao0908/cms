@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React, { useEffect, useState } from 'react';
 import { styled, createTheme, ThemeProvider } from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline';
 import MuiDrawer from '@mui/material/Drawer';
@@ -9,15 +9,16 @@ import List from '@mui/material/List';
 import Typography from '@mui/material/Typography';
 import Divider from '@mui/material/Divider';
 import IconButton from '@mui/material/IconButton';
-import Badge from '@mui/material/Badge';
+// import Badge from '@mui/material/Badge';
+// import NotificationsIcon from '@mui/icons-material/Notifications';
 import Container from '@mui/material/Container';
-import Grid from '@mui/material/Grid';
-// import Link from '@mui/material/Link';
 import MenuIcon from '@mui/icons-material/Menu';
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
-import NotificationsIcon from '@mui/icons-material/Notifications';
 import { mainListItems, secondaryListItems } from '../utils/listItems';
-
+import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
+import api_user_profile from '../services/api_user_profile';
+import api_config_header from '../services/api_config_header';
 const drawerWidth = 240;
 
 const AppBar = styled(MuiAppBar, {
@@ -64,14 +65,69 @@ const Drawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== 'open' 
   }),
 );
 
-// TODO remove, this demo shouldn't need to reset the theme.
 const defaultTheme = createTheme();
 
-export default function Layout() {
-  const [open, setOpen] = React.useState(true);
+
+const ConfigsPage = () => {
+  const [open, setOpen] = useState(true);
+  const [contactConfig, setcontactConfig] = useState([]);
+  const [newContact, setNewContact] = useState('');
+  const [userProfile, setUserProfile] = useState(null);
+
+  const navigate = useNavigate(); // 获取 navigate 函数
+
+  // console.log(userProfile);
   const toggleDrawer = () => {
     setOpen(!open);
   };
+
+  useEffect(()=>{
+    api_user_profile()
+    .then(data => {
+      setUserProfile(data);
+      if(data.is_admin!==1) 
+        return navigate("/")
+    })
+    .catch(err => {
+      return navigate("/")
+    });
+    api_config_header()
+    .then(data=>{
+      // console.log(data)
+      setcontactConfig(data)
+    })
+    .catch(error=>{
+      console.log(error)
+    })
+    
+
+  },[])
+  
+  const handleRemoveContact = (index) => {
+    const updatedTasks = contactConfig.filter((_, i) => i !== index);
+    setcontactConfig(updatedTasks);
+  };
+
+  const handleAddContact = () => {
+    if (newContact.trim() !== '') {
+      const updatedContacts = [...contactConfig, {
+        title: 'telephone',
+        value: newContact
+      }];
+      setcontactConfig(updatedContacts);
+      setNewContact('');
+    }
+  };
+
+  const handleUpdateContact = ()=>{
+    axios.post('http://localhost:8080/api/config/header/update', contactConfig)
+    .then(response => {
+      console.log('Data created successfully:', response.data);
+    })
+    .catch(error => {
+      console.error('Error creating data:', error);
+    });
+  }
 
   return (
     <ThemeProvider theme={defaultTheme}>
@@ -102,13 +158,9 @@ export default function Layout() {
               noWrap
               sx={{ flexGrow: 1 }}
             >
-              top bar placeholder
+              Configuration
             </Typography>
-            <IconButton color="inherit">
-              <Badge badgeContent={4} color="secondary">
-                <NotificationsIcon />
-              </Badge>
-            </IconButton>
+            { !!userProfile && (<span>welcome {userProfile.username} </span>)}
           </Toolbar>
         </AppBar>
         <Drawer variant="permanent" open={open}>
@@ -145,12 +197,28 @@ export default function Layout() {
         >
           <Toolbar />
           <Container maxWidth="lg" sx={{ mt: 4, mb: 4 }}>
-            <Grid container spacing={3}>
-              
-            </Grid>
+            <h1>configuration</h1>
+            {
+              !!contactConfig && contactConfig.map((element, index)=>{
+                return <div key={index}>
+                  <span>contacter{index} {element.value}</span>
+                  &nbsp;
+                  <button onClick={()=>handleRemoveContact(index)}>remove</button>
+                </div>
+              })
+            }
+            <input 
+              type="text"
+              value={newContact}
+              onChange={(e) => setNewContact(e.target.value)}
+              />
+            <button onClick={handleAddContact}>add</button>
+            <div><button onClick={handleUpdateContact}>update</button></div>
           </Container>
         </Box>
       </Box>
     </ThemeProvider>
   );
 }
+
+export { ConfigsPage };

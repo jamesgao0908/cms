@@ -1,19 +1,26 @@
 
 import React from 'react';
-import { Route, Routes } from 'react-router-dom';
-// import { Home  } from './Pages';
-import Home from './Pages/Home';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Product from './Pages/Product';
-import Layout from './utils/Layout';
-
+import { 
+  ConfigsPage,
+  DashboardPage,
+  HomePage,
+  LoginPage,
+  
+} from './Pages';
+// import DashboardPage from './Pages/DashboardPage'
 const App = () => {
-
   return (
-    <Routes>
-      <Route path="/" element={<Home />} />
-      <Route path="/product/:id" element={<Product/>}/>
-      <Route path="/dashboard" element={<Layout />} />
-    </Routes>
+    <Router>
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/product/:id" element={<Product/>}/>
+        <Route path="/dashboard" element={<DashboardPage />} />
+        <Route path="/config" element={<ConfigsPage />} />
+        <Route path="/login" element={<LoginPage />} />
+      </Routes>
+    </Router>
   )
 }
 

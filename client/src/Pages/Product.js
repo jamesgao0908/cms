@@ -19,8 +19,9 @@ export default function Product() {
   return<div>
     {
       !!data && <div>
-        <h1>{data.name}</h1>
-        <h4>{data.category}</h4>
+        <h1>name: {data.product_name}</h1>
+        <h4>description: {data.description}</h4>
+        <h4>price: {data.price}</h4>
       </div>
     }
   </div>

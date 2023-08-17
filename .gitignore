@@ -2,7 +2,6 @@
 
 # dependencies
 client/node_modules
-server/node_modules
 client/.pnp
 client/.pnp.js
 
@@ -24,4 +23,7 @@ client/yarn-debug.log*
 client/yarn-error.log*
 
 
+server/node_modules
+server/*.pem
+server/*.csr
 

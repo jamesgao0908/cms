@@ -1,14 +1,20 @@
 import React, { useEffect, useMemo, useState } from 'react';
 import axios from 'axios';
+import { Header, ContactBar } from '../components';
 
-export default function Home(){
+const HomePage = (
+  userinfo
+) => {
   const [produtsInfo, setProductsInfo] = useState([]);
+  const [headerInfo,setHeaderInfo]=useState();
 
   const fetchAllProducts =useMemo(()=>()=>{
     axios.get("http://localhost:8080/allproducts").then(response => {
       setProductsInfo(response.data)
-      console.log(response.data)
     });
+    axios.get("http://localhost:8080/api/config/header").then(response=>{
+      setHeaderInfo(response.data)
+    })
   },[])
 
   useEffect(()=>{
@@ -16,6 +22,8 @@ export default function Home(){
   },[fetchAllProducts])
 
   return (<div>
+    <ContactBar data={headerInfo}/>
+    <Header />
     {
       !!produtsInfo && produtsInfo.map((element, index)=>{
         return (<div key={index}>
@@ -26,3 +34,5 @@ export default function Home(){
     }
   </div>)
 }
+
+export { HomePage };

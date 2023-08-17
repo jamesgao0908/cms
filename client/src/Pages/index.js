@@ -1,5 +1,4 @@
-// export * from './Home';
-export * from './Dashboard';
-// export * from './Product';
-// export * from './Orders';
-// export * from './Configs';
+export * from './HomePage';
+export * from './ConfigsPage';
+export * from './DashboardPage';
+export * from './LoginPage';

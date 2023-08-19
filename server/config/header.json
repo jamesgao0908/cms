@@ -1,10 +1,12 @@
-[
-  {
-    "title": "fax",
-    "value": "(02) 9855 4822"
-  },
-  {
-    "title": "telephone",
-    "value": "61-451818426"
-  }
-]
+{
+  "contact":[
+    {
+      "title": "fax",
+      "value": "(02) 9855 4822"
+    },
+    {
+      "title": "telephone",
+      "value": "61-451818426"
+    }
+  ]
+}

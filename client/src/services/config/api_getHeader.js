@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const api_config_header = () => {
+const api_getHeader = () => {
   return axios.get("http://localhost:8080/api/config/header")
     .then(response => {
       return response.data
@@ -10,4 +10,4 @@ const api_config_header = () => {
     })
 };
 
-export default api_config_header;
+export default api_getHeader;

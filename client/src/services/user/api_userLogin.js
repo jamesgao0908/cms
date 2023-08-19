@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const api_login = (email, password, navigate) => {
+const  api_userLogin = (email, password, navigate) => {
   return new Promise((resolve, reject) => {
     const postData = {
       email,
@@ -27,4 +27,4 @@ const api_login = (email, password, navigate) => {
   });
 };
 
-export default api_login;
+export default api_userLogin;

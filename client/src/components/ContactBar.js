@@ -29,7 +29,6 @@ const ContactTitleList = styled.ul`
 const ContactBar = (data) => {
   
   const contactInfos = data.data
-
   const deliveryInfos = {
     "title": "Opening hours 9 a.m. - 6 p.m" 
   }
@@ -39,7 +38,7 @@ const ContactBar = (data) => {
       <ContactTitle>
         <ContactTitleList>
         {
-          !!contactInfos && contactInfos.map((element, index)=>{
+          !!contactInfos && contactInfos.contact.map((element, index)=>{
             return <li key={index}>{element.title} {element.value}</li>
           })  
         }

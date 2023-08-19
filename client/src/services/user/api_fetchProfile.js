@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const api_user_profile = () => {
+const api_fetchProfile = () => {
   return new Promise((resolve, reject) => {
     const token = localStorage.getItem('token');
     axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
@@ -15,7 +15,6 @@ const api_user_profile = () => {
 
     axiosInstance.get('/user/profile')
       .then(response => { 
-        // console.log(response.data);
         resolve(response.data); // 将结果通过 resolve 返回
       })
       .catch(error => {
@@ -25,4 +24,4 @@ const api_user_profile = () => {
   });
 };
 
-export default api_user_profile;
+export default api_fetchProfile;

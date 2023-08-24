@@ -1,2 +1,2 @@
-export * from './TopBar'
-export * from './ItemCard'
+export * from './TopBar';
+export * from './ItemCard';

@@ -1,18 +1,16 @@
-
-import styled from "styled-components";
-import React from "react";
+import styled from 'styled-components';
+import React from 'react';
 import sampleLogo from '../static/image/sampleLogo.jpg'; // 路径根据您的实际情况进行调整
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faShoppingCart } from '@fortawesome/free-solid-svg-icons';
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
+import {faShoppingCart} from '@fortawesome/free-solid-svg-icons';
 import Button from '@mui/material/Button';
-import { useCart } from '../utils/cartContext';
-
+import {useCart} from '../utils/cartContext';
 
 const TopBarWrapper = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-`
+`;
 
 const LeftPart = styled.div`
   display: flex;
@@ -32,7 +30,7 @@ const StyledUl = styled.ul`
   display: inline-flex;
   flex-direction: row;
   margin: 0;
-  gap: 0.5rem;  
+  gap: 0.5rem;
 `;
 
 const StyledCartItem = styled.span`
@@ -45,19 +43,15 @@ const StyledCartItem = styled.span`
   align-items: center;
   justify-content: center;
   font-weight: bold;
-
 `;
 
-
-
 const TopBar = (data) => {
-
-  const { cartItems } = useCart();
+  const {cartItems} = useCart();
 
   return (
     <TopBarWrapper>
       <LeftPart>
-        <img src={sampleLogo} alt="logo" height={40}/>
+        <img src={sampleLogo} alt="logo" height={40} />
         <StyledUl>
           <li>Home</li>
           <li>About</li>
@@ -65,20 +59,16 @@ const TopBar = (data) => {
         </StyledUl>
       </LeftPart>
       <RightPart>
-          <StyledButton variant="contained">
-            <FontAwesomeIcon icon={faShoppingCart} />
-            Cart
-            <StyledCartItem >
-              {
-                cartItems.length > 99 ? 'M' : cartItems.length
-              }
-            </StyledCartItem>
-          </StyledButton>
-        </RightPart>
+        <StyledButton variant="contained">
+          <FontAwesomeIcon icon={faShoppingCart} />
+          Cart
+          <StyledCartItem>
+            {cartItems.length > 99 ? 'M' : cartItems.length}
+          </StyledCartItem>
+        </StyledButton>
+      </RightPart>
     </TopBarWrapper>
   );
 };
 
-export { TopBar }
-
-
+export {TopBar};

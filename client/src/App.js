@@ -1,15 +1,9 @@
-
 import React from 'react';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import { CartProvider } from './utils/cartContext'; // 导入购物车上下文
-import { 
-  HomePage,
-  LoginPage,
-  ProductPage,
-} from './Pages';
+import {BrowserRouter as Router, Route, Routes} from 'react-router-dom';
+import {CartProvider} from './utils/cartContext'; // 导入购物车上下文
+import {HomePage, LoginPage, ProductPage} from './Pages';
 
 const App = () => {
-
   return (
     <Router>
       <CartProvider>
@@ -20,7 +14,7 @@ const App = () => {
         </Routes>
       </CartProvider>
     </Router>
-  )
-}
+  );
+};
 
 export default App;

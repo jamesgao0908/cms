@@ -1,11 +1,11 @@
-import React, { useEffect } from 'react';
-import { TopBar, ItemCard} from '../components';
-import { useGlobalConfigs } from '../store';
-import { Box, Grid} from '@mui/material';
+import React, {useEffect} from 'react';
+import {TopBar, ItemCard} from '../components';
+import {useGlobalConfigs} from '../store';
+import {Box, Grid} from '@mui/material';
 import styled from 'styled-components';
 
 const StyledBox = styled(Box)`
-  margin: 0 auto
+  margin: 0 auto;
 `;
 
 const StyledTopBarWrapper = styled.div`
@@ -15,30 +15,32 @@ const StyledTopBarWrapper = styled.div`
   z-index: 99;
 `;
 
-const HomePage = (
-) => { 
+const HomePage = () => {
   const [state] = useGlobalConfigs();
-  
-  useEffect(()=>{
-    console.log(state)
-  },[state])
+
+  useEffect(() => {
+    console.log(state);
+  }, [state]);
 
   return (
-    <StyledBox sx={{ p: 2, maxWidth: 1084 }} >
-      {
-        (!!state.header && (state.header.contact instanceof Array) ) &&  <StyledTopBarWrapper><TopBar data={state.header.contact}/></StyledTopBarWrapper>
-      }
+    <StyledBox sx={{p: 2, maxWidth: 1084}}>
+      {!!state.header && state.header.contact instanceof Array && ( <StyledTopBarWrapper>
+          <TopBar data={state.header.contact} />
+        </StyledTopBarWrapper>
+      )}
       <Grid container spacing={4}>
-        {
-          (!!state && state.product instanceof Array) && state.product.map((element, index)=>{
-            return (<Grid item key={index}>
-              <ItemCard itemCardInfo={element}/>
-            </Grid>)
-          })
-        }
+        {!!state &&
+          state.product instanceof Array &&
+          state.product.map((element, index) => {
+            return (
+              <Grid item key={index}>
+                <ItemCard itemCardInfo={element} />
+              </Grid>
+            );
+          })}
       </Grid>
+    </StyledBox>
+  );
+};
 
-    </StyledBox>)
-}
-
-export { HomePage };
+export {HomePage};

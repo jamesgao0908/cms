@@ -1,5 +1,0 @@
-useConext
-  ==> themeProvider
-  ==> configuationProvider
-  ==> shoppingcartProdiver
-  

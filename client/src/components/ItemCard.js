@@ -1,19 +1,18 @@
 import React from 'react';
-import { Card, Typography, CardMedia} from '@mui/material';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCartPlus } from '@fortawesome/free-solid-svg-icons';
+import {Card, Typography, CardMedia} from '@mui/material';
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
+import {faCartPlus} from '@fortawesome/free-solid-svg-icons';
 import styled from 'styled-components';
-import { useCart } from '../utils/cartContext'; // 根据您的实际路径进行导入
-import { Link } from 'react-router-dom';
+import {useCart} from '../utils/cartContext'; // 根据您的实际路径进行导入
+import {Link} from 'react-router-dom';
 import Box from '@mui/material/Box';
 
-
 const MuiCustomTypography = styled(Typography)`
-&& {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
+  && {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
 `;
 
 const StyledCard = styled(Card)`
@@ -43,20 +42,18 @@ const StyledContentTypography = styled(Typography)`
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 2; /* 最多两行 */
   overflow: hidden;
-
 `;
 
-export const ItemCard = (data)=>{
+export const ItemCard = (data) => {
+  const {addToCart} = useCart(); // 使用 useCart 钩子来获取购物车操作
 
-  const { addToCart } = useCart(); // 使用 useCart 钩子来获取购物车操作
-  
   return (
     <StyledLink to={`/product/${data.itemCardInfo.product_id}`}>
-      <StyledCard sx={{ width: 240, height: 350 }} variant="outlined">
+      <StyledCard sx={{width: 240, height: 350}} variant="outlined">
         <CardMedia
-          sx={{ width: 240, height: 185 }}
-          image={ data.itemCardInfo.image_urls }
-          title={ data.itemCardInfo.product_name }
+          sx={{width: 240, height: 185}}
+          image={data.itemCardInfo.image_urls}
+          title={data.itemCardInfo.product_name}
           component="img"
         />
         <StyledBox height={165}>
@@ -68,16 +65,16 @@ export const ItemCard = (data)=>{
           </StyledContentTypography>
           <MuiCustomTypography align="center" variant="subtitle2">
             {'$' + data.itemCardInfo.price}
-            <FontAwesomeIcon 
-              icon={faCartPlus} 
-              onClick={e=>{
+            <FontAwesomeIcon
+              icon={faCartPlus}
+              onClick={(e) => {
                 e.preventDefault();
-                addToCart(data.itemCardInfo)
+                addToCart(data.itemCardInfo);
               }}
             />
-          </MuiCustomTypography>        
+          </MuiCustomTypography>
         </StyledBox>
       </StyledCard>
     </StyledLink>
-  )
-}
+  );
+};

@@ -3,7 +3,9 @@ const router = express.Router();
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 const mysql = require('mysql');
+const dotenv = require('dotenv');
 
+dotenv.config();
 const db = mysql.createConnection({
   host: process.env.DB_HOST,
   user: process.env.DB_USER,
@@ -15,7 +17,7 @@ router.post('/api/user/login', (req, res) => {
   const { email, password } = req.body;
   db.query('SELECT * FROM users WHERE email = ?', [email], (error, results) => {
     if (error) {
-      console.error('Error fetching user:', error);
+
       res.status(500).json({ message: 'Internal server error' });
     } else {
       if (results.length === 0) {
@@ -24,7 +26,7 @@ router.post('/api/user/login', (req, res) => {
         const user = results[0];
         bcrypt.compare(password, user.password_hash, (err, result) => {
           if (err) {
-            console.error('Error comparing passwords:', err);
+
             res.status(500).json({ message: 'Internal server error' });
           } else {
             if (result) {
@@ -64,7 +66,7 @@ router.get('/api/user/profile', (req, res) => {
   // 验证并解析 JWT 令牌
   jwt.verify(token.split(' ')[1], process.env.JWT_SECRET_KEY, (err, decoded) => {
     if (err) {
-      console.error('JWT verification error:', err);
+
       return res.status(403).json({ message: 'Failed to authenticate token' });
     }
     // 在解码后的数据中，你可以访问用户信息，如 decoded.id、decoded.username 等
@@ -109,7 +111,6 @@ router.get('/api/user/getall', (req, res) => {
   const query = 'SELECT * FROM users';
   db.query(query, (error, results) => {
     if (error) {
-      console.error('Error fetching users:', error);
       res.status(500).json({ message: 'Internal server error' });
     } else {
       res.status(200).json(results);

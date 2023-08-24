@@ -18,7 +18,6 @@ const api_fetchProfile = () => {
         resolve(response.data); // 将结果通过 resolve 返回
       })
       .catch(error => {
-        console.error(error);
         reject(error); // 将错误通过 reject 返回
       });
   });

@@ -24,7 +24,8 @@ const HomePage = () => {
 
   return (
     <StyledBox sx={{p: 2, maxWidth: 1084}}>
-      {!!state.header && state.header.contact instanceof Array && ( <StyledTopBarWrapper>
+      {!!state.header && state.header.contact instanceof Array && ( 
+      <StyledTopBarWrapper>
           <TopBar data={state.header.contact} />
         </StyledTopBarWrapper>
       )}

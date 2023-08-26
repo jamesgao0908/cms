@@ -1,3 +1,2 @@
-export * from './Header'
-export * from './ContactBar'
-export * from './ItemCard'
+export * from "./TopBar";
+export * from "./ItemCard";

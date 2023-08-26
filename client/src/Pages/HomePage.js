@@ -1,38 +1,40 @@
-import React, { useEffect, useMemo, useState } from 'react';
-import axios from 'axios';
-import { Header, ContactBar } from '../components';
+import React, { useEffect } from "react";
+import { TopBar, ItemCard } from "../components";
+import { useGlobalConfigs } from "../store";
+import { Box, Grid } from "@mui/material";
+import styled from "styled-components";
 
-const HomePage = (
-  userinfo
-) => {
-  const [produtsInfo, setProductsInfo] = useState([]);
-  const [headerInfo,setHeaderInfo]=useState();
+const StyledBox = styled(Box)`
+  margin: 0 auto;
+`;
 
-  const fetchAllProducts =useMemo(()=>()=>{
-    axios.get("http://localhost:8080/allproducts").then(response => {
-      setProductsInfo(response.data)
-    });
-    axios.get("http://localhost:8080/api/config/header").then(response=>{
-      setHeaderInfo(response.data)
-    })
-  },[])
+const StyledTopBarWrapper = styled.div`
+  position: sticky;
+  top: 0;
+  background-color: white;
+  z-index: 99;
+`;
 
-  useEffect(()=>{
-    fetchAllProducts()
-  },[fetchAllProducts])
+const HomePage = () => {
+  const [state] = useGlobalConfigs();
 
-  return (<div>
-    <ContactBar data={headerInfo}/>
-    <Header />
-    {
-      !!produtsInfo && produtsInfo.map((element, index)=>{
-        return (<div key={index}>
-          <h1>{element.name}</h1>
-          <h4>{element.category}</h4>
-        </div>)
-      })
-    }
-  </div>)
-}
+  useEffect(() => {}, [state]);
+
+  return (
+    <StyledBox sx={{ p: 2, maxWidth: 1084 }}>
+      <Grid container spacing={4}>
+        {!!state &&
+          state.product instanceof Array &&
+          state.product.map((element, index) => {
+            return (
+              <Grid item key={index}>
+                <ItemCard itemCardInfo={element} />
+              </Grid>
+            );
+          })}
+      </Grid>
+    </StyledBox>
+  );
+};
 
 export { HomePage };

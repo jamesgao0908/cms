@@ -3,4 +3,4 @@ const findProductIdById = (data, id) => {
   return product ? product : null;
 };
 
-export {findProductIdById};
+export { findProductIdById };

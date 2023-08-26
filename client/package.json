@@ -30,11 +30,11 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "npx prettier --write . && eslint --fix . && react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "lint": "eslint --fix"
+    "format": "npx prettier --write . && eslint --fix"
   },
   "eslintConfig": {
     "extends": [
@@ -48,8 +48,12 @@
     }
   },
   "lint-staged": {
-    "*.js": "eslint --fix"
-  },  
+    "*": [
+      "eslint --fix",
+      "prettier --write",
+      "git add"
+    ]
+  },
   "browserslist": {
     "production": [
       ">0.2%",
@@ -64,13 +68,12 @@
   },
   "devDependencies": {
     "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
-    "eslint": "^8.47.0",
-    "eslint-config-google": "^0.14.0",
-    "eslint-config-prettier": "^9.0.0",
-    "eslint-plugin-prettier": "^5.0.0",
+    "eslint": "8.48.0",
     "eslint-plugin-react": "^7.33.2",
     "husky": "^8.0.3",
     "lint-staged": "^14.0.1",
-    "prettier": "^3.0.2"
+    "npm-run-all": "^4.1.5",
+    "prettier": "^3.0.2",
+    "watcher": "^2.3.0"
   }
 }

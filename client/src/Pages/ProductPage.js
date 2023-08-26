@@ -1,11 +1,11 @@
-import {useParams} from 'react-router-dom';
-import {useGlobalConfigs} from '../store';
-import React, {useEffect, useState} from 'react';
-import {findProductIdById} from '../utils/findProductIdById';
+import { useParams } from "react-router-dom";
+import { useGlobalConfigs } from "../store";
+import React, { useEffect, useState } from "react";
+import { findProductIdById } from "../utils/findProductIdById";
 
 const ProductPage = () => {
   const [state] = useGlobalConfigs();
-  const {id} = useParams();
+  const { id } = useParams();
   const [cardInfo, setCardInfo] = useState(null);
 
   useEffect(() => {
@@ -30,4 +30,4 @@ const ProductPage = () => {
   );
 };
 
-export {ProductPage};
+export { ProductPage };

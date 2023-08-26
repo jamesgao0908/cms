@@ -14,10 +14,9 @@ const db = mysql.createConnection({
 });
 
 router.post('/api/user/login', (req, res) => {
-  const { email, password } = req.body;
+  const { email, password, rememberMe } = req.body;
   db.query('SELECT * FROM users WHERE email = ?', [email], (error, results) => {
     if (error) {
-
       res.status(500).json({ message: 'Internal server error' });
     } else {
       if (results.length === 0) {
@@ -26,7 +25,6 @@ router.post('/api/user/login', (req, res) => {
         const user = results[0];
         bcrypt.compare(password, user.password_hash, (err, result) => {
           if (err) {
-
             res.status(500).json({ message: 'Internal server error' });
           } else {
             if (result) {
@@ -40,9 +38,8 @@ router.post('/api/user/login', (req, res) => {
                 is_admin: user.is_admin,
               },
               process.env.JWT_SECRET_KEY, // 使用环境变量存储密钥
-              { expiresIn: '2w' } // 设置 token 过期时间
+              { expiresIn: rememberMe ? '2w': '1d' } // 设置 token 过期时间
               );
-
               res.json({ message: 'Login successful', token, is_admin: user.is_admin });
             } else {
               res.status(401).json({ message: 'Email or password incorrect' });

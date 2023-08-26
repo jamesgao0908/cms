@@ -1,10 +1,10 @@
 /* eslint-disable */
 
-import React, {createContext, useContext, useState} from 'react';
+import React, { createContext, useContext, useState } from "react";
 
 const CartContext = createContext();
 
-export function CartProvider({children}) {
+export function CartProvider({ children }) {
   const [cartItems, setCartItems] = useState([]);
 
   // console.log(cartItems);
@@ -19,7 +19,7 @@ export function CartProvider({children}) {
   };
 
   return (
-    <CartContext.Provider value={{cartItems, addToCart, removeFromCart}}>
+    <CartContext.Provider value={{ cartItems, addToCart, removeFromCart }}>
       {children}
     </CartContext.Provider>
   );

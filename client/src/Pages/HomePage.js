@@ -19,7 +19,6 @@ const HomePage = () => {
   const [state] = useGlobalConfigs();
 
   useEffect(() => {}, [state]);
-
   return (
     <StyledBox sx={{ p: 2, maxWidth: 1084 }}>
       <Grid container spacing={4}>

@@ -39,3 +39,7 @@ function stringToColor(string) {
 function containsWhitespace(str) {
   return /\s/.test(str);
 }
+
+export function formatAllImagesToArray(e) {
+  return JSON.parse(e);
+}

@@ -52,7 +52,13 @@ router.post('/api/user/login', (req, res) => {
 });
 
 router.post('/api/user/logout', (req, res) => {
-  res.json({ message: 'Logged out' });
+  const token = req.headers.authorization;
+  jwt.verify(token.split(' ')[1], process.env.JWT_SECRET_KEY, (err, decoded) => {
+    if (err) {
+      return res.status(401).json({ message: 'Invalid token' });
+    }
+    res.json({ message: 'Logged out' });
+  });
 });
 
 router.get('/api/user/profile', (req, res) => {
@@ -91,7 +97,8 @@ router.post("/api/user/register", (req,res)=>{
     email: req.body.email,
     address: req.body.address,
     phone: req.body.phone,
-    is_admin: req.body.is_admin //默认为0，非admin
+    is_admin: req.body.is_admin, //默认为0，非admin
+    is_subscriber: req.body.is_subscriber
   };
 
   db.query('INSERT INTO users SET ?', newUser, (error) => {
@@ -103,7 +110,6 @@ router.post("/api/user/register", (req,res)=>{
   });
 })
 
-// 在这里执行查询数据库的操作，获取所有用户的信息
 router.get('/api/user/getall', (req, res) => {
   const query = 'SELECT * FROM users';
   db.query(query, (error, results) => {

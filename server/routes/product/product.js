@@ -17,20 +17,24 @@ router.get('/api/product/getall', (req, res) => {
 
   const query = `
   SELECT
-  products.product_id,
-  products.product_name,
-  products.description,
-  products.price,
-  products.stock,
-  products.category_id,
-  IFNULL(GROUP_CONCAT(product_images.image_url), '') AS image_urls
-  FROM
-    products
-  LEFT JOIN
-    product_images ON products.product_id = product_images.product_id
-  GROUP BY
-    products.product_id;
-
+    p.product_id,
+    p.product_name,
+    p.description,
+    p.price,
+    p.stock,
+    p.category_id,
+    (
+      SELECT pi.image_url
+      FROM product_images pi
+      WHERE pi.product_id = p.product_id
+      LIMIT 1
+    ) AS image_urls,
+    IFNULL((
+      SELECT JSON_ARRAYAGG(image_url)
+      FROM product_images pi
+      WHERE pi.product_id = p.product_id
+    ), '[]') AS all_images
+  FROM products p;
   `;
 
   db.query(query, (error, results) => {

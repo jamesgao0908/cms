@@ -63,8 +63,9 @@ export const useGlobalConfigs = () => {
         dispatch({ type: "SET_ERROR", payload: error });
       });
   };
+
   useEffect(() => {
-    return () => fetchAll();
+    fetchAll();
   }, []);
 
   return [state, dispatch];

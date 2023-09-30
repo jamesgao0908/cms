@@ -1,7 +1,13 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import { CartProvider } from "./utils/cartContext";
-import { HomePage, LoginPage, ProductPage, CartPage } from "./Pages";
+import {
+  HomePage,
+  LoginPage,
+  ProductPage,
+  CartPage,
+  CheckoutPage,
+} from "./Pages";
 import { TopBar } from "./components";
 import Container from "@mui/material/Container";
 import "./app.css";
@@ -20,6 +26,10 @@ const App = () => {
           <Route
             path="/cart"
             element={<AppWithTopBar element={<CartPage />} />}
+          />
+          <Route
+            path="/checkout"
+            element={<AppWithTopBar element={<CheckoutPage />} />}
           />
         </Routes>
       </CartProvider>

@@ -1,6 +1,7 @@
 import axios from "axios";
 
 const api_userLogin = (email, password, rememberMe, navigate) => {
+  // console.log("called login");
   return new Promise((resolve, reject) => {
     const postData = {
       email,

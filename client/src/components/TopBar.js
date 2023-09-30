@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import React from "react";
+import React, { useState } from "react";
 import sampleLogo from "../static/image/sampleLogo.jpg"; // 路径根据您的实际情况进行调整
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faShoppingCart } from "@fortawesome/free-solid-svg-icons";
@@ -9,11 +9,14 @@ import { useCart } from "../utils/cartContext";
 import { Link } from "react-router-dom";
 import { stringAvatar } from "../utils/tools";
 import { useGlobalConfigs } from "../store";
+import api_userLogout from "../services/user/api_userLogout";
 
 const TopBarWrapper = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
+  box-shadow: inset 0px -1px 1px #e5eaf2;
+  padding: 1rem 0;
 `;
 
 const LeftPart = styled.div`
@@ -54,9 +57,18 @@ const StyledCartItem = styled.span`
   font-weight: bold;
 `;
 
+const StyledLogoutButton = styled(Button)``;
+
+const StyledLogInButton = styled(Button)``;
+
 const TopBar = ({}) => {
   const { cartItems } = useCart();
-  const [state] = useGlobalConfigs();
+  const [state, dispatch] = useGlobalConfigs();
+
+  const totalQuantity = cartItems.reduce(
+    (total, item) => total + item.quantity,
+    0,
+  );
 
   return (
     <TopBarWrapper>
@@ -68,30 +80,42 @@ const TopBar = ({}) => {
           <Link to="/">
             <li>Home</li>
           </Link>
-          <Link to="/about">
+          <Link to="/">
             <li>About</li>
           </Link>
         </StyledUl>
       </LeftPart>
       <RightPart>
-        <Link to="/user">
-          {!!state.user ? (
+        {!!state.user && (
+          <Link to="/user">
             <Avatar {...stringAvatar(`${state.user.username}`)} />
-          ) : (
-            <Link to="/login">
-              <Button variant="outlined">login</Button>
-            </Link>
-          )}
-        </Link>
+          </Link>
+        )}
         <Link to="/cart">
           <StyledButton variant="contained">
             <FontAwesomeIcon icon={faShoppingCart} />
             Cart
             <StyledCartItem>
-              {cartItems.length > 99 ? "M" : cartItems.length}
+              {totalQuantity > 99 ? "M" : totalQuantity}
             </StyledCartItem>
           </StyledButton>
         </Link>
+        {!!state.user ? (
+          <StyledLogoutButton
+            onClick={() => {
+              api_userLogout()
+                .then(() => dispatch({ type: "SET_USER", payload: null }))
+                .catch((err) => alert(err));
+            }}
+            variant="outlined"
+          >
+            logout
+          </StyledLogoutButton>
+        ) : (
+          <Link to="/login">
+            <StyledLogInButton variant="outlined">login</StyledLogInButton>
+          </Link>
+        )}
       </RightPart>
     </TopBarWrapper>
   );

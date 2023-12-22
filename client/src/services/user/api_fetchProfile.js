@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const api_fetchProfile = () => {
-  console.log("called profile");
+  // console.log("called profile");
   return new Promise((resolve, reject) => {
     const token = localStorage.getItem("token");
     axios.defaults.headers.common["Authorization"] = `Bearer ${token}`;

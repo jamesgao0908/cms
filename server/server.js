@@ -12,9 +12,11 @@ app.use(cors());
 const configRouter = require('./routes/config/getConfigs.js');
 const userRouter = require('./routes/user/user.js');
 const productRouter = require('./routes/product/product.js');
+const imageRouter = require('./routes/image/image.js');
 app.use('/', configRouter);
 app.use('/', userRouter);
 app.use('/', productRouter);
+app.use('/', imageRouter);
 
 const PORT = 8080;
 httpServer.listen(PORT, () => {

@@ -8,5 +8,27 @@
       "title": "telephone",
       "value": "61-451818426"
     }
-  ]
+  ],
+  "navBar":[
+    {
+      "title": "home",
+      "value": "Home",
+      "link": "/"
+    },{
+      "title": "shop",
+      "value": "Shop",
+      "link": "/shop"
+    },{
+      "title": "customBake",
+      "value": "Custom bake",
+      "link": "/custombake"
+    },{
+      "title": "fqa",
+      "value": "FAQ",
+      "link": "/fqa"
+    }
+  ],
+  "on&off":{
+    "navBar":true
+  }
 }

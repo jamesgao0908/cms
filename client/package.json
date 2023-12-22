@@ -2,6 +2,7 @@
   "name": "client",
   "version": "0.1.0",
   "private": true,
+  "type": "module",
   "proxy": "http://localhost:8080",
   "dependencies": {
     "@emotion/react": "^11.11.1",
@@ -20,18 +21,19 @@
     "react-query": "^3.39.3",
     "react-redux": "^8.1.2",
     "react-router-dom": "^6.15.0",
-    "react-scripts": "^5.0.1",
+    "react-scripts": "^3.0.1",
     "react-transition-group": "^4.4.5",
     "reactstrap": "^9.2.0",
     "recharts": "^2.7.2",
     "redux": "^4.2.1",
+    "sass": "^1.69.5",
     "styled-components": "^6.0.7",
-    "swiper": "^10.2.0",
+    "swiper": "6.8.4",
     "typescript": "^5.1.6",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "start": "npx prettier --write . && eslint --fix . && react-scripts start",
+    "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
@@ -41,18 +43,6 @@
     "extends": [
       "react-app",
       "react-app/jest"
-    ]
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged"
-    }
-  },
-  "lint-staged": {
-    "*": [
-      "eslint --fix",
-      "prettier --write",
-      "git add"
     ]
   },
   "browserslist": {
@@ -69,10 +59,9 @@
   },
   "devDependencies": {
     "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
-    "eslint": "8.48.0",
+    "eslint": "^5.16.0",
     "eslint-plugin-react": "^7.33.2",
     "husky": "^8.0.3",
-    "lint-staged": "^14.0.1",
     "npm-run-all": "^4.1.5",
     "prettier": "^3.0.2",
     "watcher": "^2.3.0"

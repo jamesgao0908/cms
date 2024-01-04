@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCartPlus } from "@fortawesome/free-solid-svg-icons";
 import styled from "styled-components";
 import { useCart } from "../utils/cartContext"; // 根据您的实际路径进行导入
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 
 const MuiCustomTypography = styled(Typography)`
   && {
@@ -36,12 +36,12 @@ const StyledTitleTypography = styled(Typography)`
   text-overflow: ellipsis;
 `;
 
-const StyledContentTypography = styled(Typography)`
-  display: -webkit-box;
-  -webkit-box-orient: vertical;
-  -webkit-line-clamp: 2; /* 最多两行 */
-  overflow: hidden;
-`;
+// const StyledContentTypography = styled(Typography)`
+//   display: -webkit-box;
+//   -webkit-box-orient: vertical;
+//   -webkit-line-clamp: 2; /* 最多两行 */
+//   overflow: hidden;
+// `;
 
 const ItemCard = ({ data }) => {
   const { addToCart } = useCart();

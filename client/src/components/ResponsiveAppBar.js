@@ -28,9 +28,11 @@ const ResponsiveAppBar = ({
   position = "sticky"
 }) => {
   const { cartItems } = useCart();
-  const [state, dispatch] = useGlobalConfigs();
+  // const [state, dispatch] = useGlobalConfigs();
+  const [state] = useGlobalConfigs();
+
   const [anchorElNav, setAnchorElNav] = React.useState(null);
-  const [anchorElUser, setAnchorElUser] = React.useState(null);
+  // const [anchorElUser, setAnchorElUser] = React.useState(null);
   const [drawState, setState] = React.useState({
     top: false,
     left: false,
@@ -42,15 +44,15 @@ const ResponsiveAppBar = ({
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
   };
-  const handleOpenUserMenu = (event) => {
-    setAnchorElUser(event.currentTarget);
-  };
+  // const handleOpenUserMenu = (event) => {
+  //   setAnchorElUser(event.currentTarget);
+  // };
   const handleCloseNavMenu = () => {
     setAnchorElNav(null);
   };
-  const handleCloseUserMenu = () => {
-    setAnchorElUser(null);
-  };
+  // const handleCloseUserMenu = () => {
+  //   setAnchorElUser(null);
+  // };
   const toggleDrawer = (anchor, open) => (event) => {
     if (
       event.type === "keydown" &&
@@ -117,7 +119,6 @@ const ResponsiveAppBar = ({
     (total, item) => total + item.quantity,
     0,
   );
-
 
   return (
     <AppBar position={position}

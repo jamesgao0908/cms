@@ -63,7 +63,6 @@ const HomePage = () => {
       </Box>
       {/* secondary banner */}
       <Box>
-        <img />
       </Box>
       {/* homepage our story banner*/}
       <Box maxWidth='1000px' m="0 auto">

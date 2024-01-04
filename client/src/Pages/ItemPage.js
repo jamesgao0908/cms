@@ -1,13 +1,13 @@
 import { useParams } from "react-router-dom";
 import { useGlobalConfigs } from "../store";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useCallback } from "react";
 import { findProductIdById } from "../utils/findProductIdById";
-import { Typography, Container, Paper, Box, Button } from "@mui/material";
+import { Typography, Box, Button } from "@mui/material";
 import { styled } from "styled-components";
 import AddShoppingCartIcon from "@mui/icons-material/AddShoppingCart";
 import { useCart } from "../utils/cartContext";
-import { formatAllImagesToArray } from "../utils/tools";
-import { Breadcrumb } from "reactstrap";
+// import { formatAllImagesToArray } from "../utils/tools";
+// import { Breadcrumb } from "reactstrap";
 import api_getOne from "../services/product/api_getOne";
 
 import 'swiper/swiper-bundle.min.css';
@@ -52,28 +52,29 @@ const ItemPage = () => {
   const [data, setData] = useState(null);
   SwiperCore.use([Pagination]);
 
-  useEffect(() => {
-    if (!!state.product) {
-      setCardInfo(findProductIdById(state.product, parseInt(id)));
-    }
-    fetchData();
-  }, [state, id]);
-
-  const fetchData = async () => {
+  const fetchData = useCallback(async () => {
     try {
       const result = await api_getOne(id);
       setData(result);
     } catch (error) {
       console.error('获取数据出错:', error);
     }
-  };
+  }, [id]);
 
-  const pagination = {
-    clickable: true,
-    renderBullet: function (index, className) {
-      return '<span class="' + className + '">' + (index + 1) + '</span>';
-    },
-  };
+  useEffect(() => {
+    if (!!state.product) {
+      setCardInfo(findProductIdById(state.product, parseInt(id)));
+    }
+    fetchData();
+  }, [state, id, fetchData]);
+
+
+  // const pagination = {
+  //   clickable: true,
+  //   renderBullet: function (index, className) {
+  //     return '<span class="' + className + '">' + (index + 1) + '</span>';
+  //   },
+  // };
 
 
   return (

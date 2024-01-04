@@ -74,13 +74,13 @@ const AppWithNavBar = ({ element }) => (
 );
 
 // eslint-disable-next-line react/prop-types
-const APPWithoutNavBar = ({ element }) => (
-  <>
-    {/* <AllComponents.TopBar /> */}
-    <Box maxWidth="lg" m='0 auto'>{element}</Box>
-    <Footer />
-  </>
-);
+// const APPWithoutNavBar = ({ element }) => (
+//   <>
+//     {/* <AllComponents.TopBar /> */}
+//     <Box maxWidth="lg" m='0 auto'>{element}</Box>
+//     <Footer />
+//   </>
+// );
 
 // eslint-disable-next-line react/prop-types
 const APPOnHomePage = ({ element }) => (

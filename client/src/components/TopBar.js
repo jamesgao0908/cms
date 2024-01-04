@@ -27,7 +27,7 @@ const ContactWrapper = styled.div`
   align-items: center;
 `;
 
-const TopBar = ({}) => {
+const TopBar = () => {
   return (
     <Wrapper>
       <Left>

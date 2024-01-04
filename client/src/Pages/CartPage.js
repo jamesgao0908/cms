@@ -1,5 +1,5 @@
 import React from "react";
-import { useGlobalConfigs } from "../store";
+// import { useGlobalConfigs } from "../store";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlus, faMinus } from "@fortawesome/free-solid-svg-icons";
 import {
@@ -31,12 +31,13 @@ const StyledTotalTypography = styled(Typography)`
   }
 `;
 
-const StyledButton = styled(Button)`
-  && {
-    display: flex;
-    align-items: center;
-  }
-`;
+// const StyledButton = styled(Button)`
+//   && {
+//     display: flex;
+//     align-items: center;
+//   }
+// `;
+
 const StyledGrid = styled(Grid)`
   box-shadow: inset 0px -1px 1px #e5eaf2;
   padding: 1rem;

@@ -42,19 +42,19 @@ const Footer = ()=>{
           <Typography align="left" variant="p" width="100%" display="inline-block" color='white'>
             <WhatsAppIcon/>wechat
           </Typography>
-          <img src={qrcode1} height={80} width={80}/>
+          <img src={qrcode1} alt='qrcode1' height={80} width={80}/>
         </Box>
         <Box>
           <Typography align="left" variant="p" width="100%" display="inline-block" color='white'>
-            <img src={WechatIcon} />wechat
+            <img src={WechatIcon} alt='wecchatIcon'/>wechat
           </Typography>
-          <img src={qrcode1} height={80} width={80}/>
+          <img src={qrcode1} alt='qrcode1' height={80} width={80}/>
         </Box>
         <Box>
           <Typography align="left" variant="p" width="100%" display="inline-block" color='white'>
-            <img src={WechatIcon} color="white"/>wechat
+            <img src={WechatIcon} alt='wecchatIcon' color="white"/>wechat
           </Typography>
-          <img src={qrcode1} height={80} width={80}/>
+          <img src={qrcode1} alt='qrcode1' height={80} width={80}/>
         </Box>
       </Box>
     </Box>

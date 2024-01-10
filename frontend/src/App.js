@@ -10,6 +10,7 @@ import {
   ShopPage,
 } from "./Pages";
 import CustomBake from "./Pages/CustomBake";
+import FAQ from "./Pages/FAQ";
 import NotFound from './Pages/NotFound';
 import AllComponents from "./components";
 import Box from "@mui/material/Box";
@@ -54,6 +55,10 @@ const App = () => {
           <Route
             path="/custombake"
             element={<AppWithNavBar element={<CustomBake />} />}
+          />
+          <Route
+            path="/fqa"
+            element={<AppWithNavBar element={<FAQ />} />}
           />
         </Routes>
       </CartProvider>

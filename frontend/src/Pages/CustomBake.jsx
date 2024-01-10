@@ -103,7 +103,6 @@ const CustomBake = ()=>{
 
   const handleCheckingCakeInfo = ()=> {
     console.log(cakeInfo);
-    console.log(isObjectEmpty(cakeInfo));
   }
 
   return <Box maxWidth={'lg'} m="1rem" sx={{display: 'flex', flexDirection: 'column', alignItems: 'center'} }>

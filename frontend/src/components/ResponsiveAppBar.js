@@ -109,7 +109,7 @@ const ResponsiveAppBar = ({
       </List>
       <Box>
         <Link to='/checkout'>
-          <Button sx={{ margin: "unset", width: "100%" }} variant="contained">Checkout</Button>
+          {/* <Button sx={{ margin: "unset", width: "100%" }} variant="contained">Checkout</Button> */}
         </Link>
       </Box>
     </Box>

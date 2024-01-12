@@ -12,7 +12,7 @@ const StyledBox = styled(Box)`
 
 const ShopPage = () => {
   const [state] = useGlobalConfigs();
-  // console.log('state', state);
+  console.log('state', state);
 
   useEffect(() => { }, [state]);
   return (

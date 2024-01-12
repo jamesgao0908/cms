@@ -53,7 +53,7 @@ const ItemCard = ({ data }) => {
         <StyledTitleTypography align="left" variant="h6" gutterBottom>
           {data.product_name}
         </StyledTitleTypography>
-        <MuiCustomTypography align="center" variant="subtitle2">
+        {/* <MuiCustomTypography align="center" variant="subtitle2">
           {"$" + data.price}
           <FontAwesomeIcon
             icon={faCartPlus}
@@ -62,7 +62,7 @@ const ItemCard = ({ data }) => {
               addToCart(data);
             }}
           />
-        </MuiCustomTypography>
+        </MuiCustomTypography> */}
       </StyledBox>
     </StyledCard>
   );

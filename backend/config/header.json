@@ -15,13 +15,9 @@
       "value": "Home",
       "link": "/"
     },{
-      "title": "shop",
-      "value": "Shop",
-      "link": "/shop"
-    },{
-      "title": "customBake",
-      "value": "Custom bake",
-      "link": "/custombake"
+      "title": "product",
+      "value": "Product",
+      "link": "/ins"
     },{
       "title": "fqa",
       "value": "FAQ",

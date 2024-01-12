@@ -3,12 +3,14 @@ import api_getHeader from "./services/config/api_getHeader";
 import api_getFooter from "./services/config/api_getFooter";
 import api_getAll from "./services/product/api_getAll";
 import api_fetchProfile from "./services/user/api_fetchProfile";
+import api_getIns from "./services/image/api_getIns";
 
 const initialState = {
   header: null,
   footer: null,
   product: null,
   user: null,
+  ins: null,
   loading: true,
   error: null,
 };
@@ -23,6 +25,8 @@ const reducer = (state, action) => {
       return { ...state, product: action.payload, loading: false };
     case "SET_USER":
       return { ...state, user: action.payload, loading: false };
+    case "SET_INS":
+      return { ...state, ins: action.payload, loading: false };
     case "SET_ERROR":
       return { ...state, error: action.payload, loading: false };
     default:
@@ -58,6 +62,13 @@ export const useGlobalConfigs = () => {
     api_fetchProfile()
       .then((response) => {
         dispatch({ type: "SET_USER", payload: response });
+      })
+      .catch((error) => {
+        dispatch({ type: "SET_ERROR", payload: error });
+      });
+    api_getIns()
+      .then((response) => {
+        dispatch({ type: "SET_INS", payload: response });
       })
       .catch((error) => {
         dispatch({ type: "SET_ERROR", payload: error });

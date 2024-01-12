@@ -6,9 +6,6 @@ import React, { useState, useRef } from "react";
 import theme from "../utils/theme";
 import PermMediaIcon from '@mui/icons-material/PermMedia';
 import Select from 'react-select';
-// import { styled } from '@mui/material/styles';
-// import singleLayer from "../static/image/singleLayer.png";
-// import doubleLayer from "../static/image/doubleLayer.png";
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { DateCalendar } from '@mui/x-date-pickers/DateCalendar';
@@ -88,6 +85,7 @@ const CustomBake = ()=>{
     const file = event.target.files[0];
     if (file) {
       fileToDataUrl(file).then((dataSting)=>{
+        console.log(dataSting)
         setImage(dataSting);
         setCakeInfo(preData=>({...preData, style : dataSting}))
       })

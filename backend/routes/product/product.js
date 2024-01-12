@@ -14,7 +14,6 @@ const db = mysql.createConnection({
 });
 
 router.get('/api/product/getall', (req, res) => {
-
   const query = `
   SELECT
     p.product_id,
@@ -41,6 +40,16 @@ router.get('/api/product/getall', (req, res) => {
       });
       res.status(200).json(results);
     }
+  });
+});
+
+router.get('/api/product/ins', (req, res) => {
+  db.query('SELECT * FROM instagram', (error, results, fields) => {
+    if (error) {
+      res.status(500).send('Internal Server Error');
+      return;
+    }
+    res.json(results);
   });
 });
 

@@ -71,7 +71,7 @@ const App = () => {
   );
 };
 
-// eslint-disable-next-line react/prop-types
+
 const AppWithNavBar = ({ element }) => (
   <>
     {/* <AllComponents.TopBar /> */}
@@ -83,7 +83,6 @@ const AppWithNavBar = ({ element }) => (
   </>
 );
 
-// eslint-disable-next-line react/prop-types
 // const APPWithoutNavBar = ({ element }) => (
 //   <>
 //     {/* <AllComponents.TopBar /> */}
@@ -92,7 +91,6 @@ const AppWithNavBar = ({ element }) => (
 //   </>
 // );
 
-// eslint-disable-next-line react/prop-types
 const APPOnHomePage = ({ element }) => (
   <>
     {/* <AllComponents.TopBar /> */}

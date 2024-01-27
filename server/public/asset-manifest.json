@@ -1,0 +1,26 @@
+{
+  "files": {
+    "main.css": "/static/css/main.87247eb0.chunk.css",
+    "main.js": "/static/js/main.cc93e924.chunk.js",
+    "main.js.map": "/static/js/main.cc93e924.chunk.js.map",
+    "runtime~main.js": "/static/js/runtime~main.a421bc1c.js",
+    "runtime~main.js.map": "/static/js/runtime~main.a421bc1c.js.map",
+    "static/css/2.7fecb140.chunk.css": "/static/css/2.7fecb140.chunk.css",
+    "static/js/2.bafbf386.chunk.js": "/static/js/2.bafbf386.chunk.js",
+    "static/js/2.bafbf386.chunk.js.map": "/static/js/2.bafbf386.chunk.js.map",
+    "static/js/3.07f17bc5.chunk.js": "/static/js/3.07f17bc5.chunk.js",
+    "static/js/3.07f17bc5.chunk.js.map": "/static/js/3.07f17bc5.chunk.js.map",
+    "index.html": "/index.html",
+    "precache-manifest.040229d939ef3fdd9a4ca7d5593e5499.js": "/precache-manifest.040229d939ef3fdd9a4ca7d5593e5499.js",
+    "service-worker.js": "/service-worker.js",
+    "static/css/2.7fecb140.chunk.css.map": "/static/css/2.7fecb140.chunk.css.map",
+    "static/css/main.87247eb0.chunk.css.map": "/static/css/main.87247eb0.chunk.css.map",
+    "static/media/Logo.png": "/static/media/Logo.6a791e29.png",
+    "static/media/img1.jpg": "/static/media/img1.d501f413.jpg",
+    "static/media/mainbanner.jpg": "/static/media/mainbanner.885b7c57.jpg",
+    "static/media/qrcode1.jpeg": "/static/media/qrcode1.244d2349.jpeg",
+    "static/media/wechat.png": "/static/media/wechat.2ec52898.png",
+    "static/media/wechat24.svg": "/static/media/wechat24.455f418e.svg",
+    "static/media/whatsapp.png": "/static/media/whatsapp.bcdd19f9.png"
+  }
+}

@@ -1,0 +1,1 @@
+{"version":3,"sources":["app.css"],"names":[],"mappings":"AAAA,EACE,oBAAqB,CACrB,UACF,CAEA,EACE,qBACF","file":"main.87247eb0.chunk.css","sourcesContent":["a {\n  text-decoration: none;\n  color: black;\n}\n\n* {\n  box-sizing: border-box;\n}\n"]}

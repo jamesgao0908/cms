@@ -7,6 +7,7 @@ const httpServer = http.createServer(app); // 使用 http 服务器
 
 app.use(express.json());
 app.use(cors());
+app.use(express.static('public'));
 
 // 导入并使用路由模块
 const configRouter = require('./routes/config/getConfigs.js');

@@ -6,8 +6,6 @@ import FacebookIcon from '@mui/icons-material/Facebook';
 import InstagramIcon from '@mui/icons-material/Instagram';
 import LocationOnIcon from '@mui/icons-material/LocationOn';
 import CallIcon from '@mui/icons-material/Call';
-import EmailIcon from '@mui/icons-material/Email';
-import qrcode1 from '../static/QRcode/qrcode1.jpeg';
 import whatsappQR from '../static/QRcode/whatsapp.png';
 import wechatQR from '../static/QRcode/wechat.png';
 import WhatsAppIcon from '@mui/icons-material/WhatsApp';

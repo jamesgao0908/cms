@@ -1,15 +1,15 @@
-import React, {useEffect} from 'react';
-import { Box, Grid, Typography, Paper, ImageList, ImageListItem } from '@mui/material';
-import styled from 'styled-components';
+import React from 'react';
+import { Box, ImageList, ImageListItem } from '@mui/material';
+// import styled from 'styled-components';
 import { useGlobalConfigs } from "../store";
 
-const Item = styled(Paper)(({ theme }) => ({
-  backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
-  ...theme.typography.body2,
-  padding: theme.spacing(1),
-  textAlign: 'center',
-  color: theme.palette.text.secondary,
-}));
+// const Item = styled(Paper)(({ theme }) => ({
+//   backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
+//   ...theme.typography.body2,
+//   padding: theme.spacing(1),
+//   textAlign: 'center',
+//   color: theme.palette.text.secondary,
+// }));
 
 
 const Instagram = ()=>{
@@ -19,7 +19,7 @@ const Instagram = ()=>{
 
   return (
     <Box sx={{display: 'flex', justifyContent: 'center'}}>
-      <Box sx={{ width: 750, height: 600, overflowY: 'scroll', overflowY: 'hidden' }}>
+      <Box sx={{ width: 750, height: 600, overflowY: 'hidden' }}>
         <ImageList variant="masonry" cols={4} gap={8}>
           { (state.ins && state) && state.ins.map((item, index) => (
             <ImageListItem key={index}>
@@ -35,23 +35,6 @@ const Instagram = ()=>{
       </Box>
     </Box>
   );
-
-
-  return (
-    <Box sx={{display: 'flex', justifyContent: 'center'}}>
-      <ImageList sx={{ width: 500 }} cols={3} rowHeight={164}>
-      { (state.ins && state) && state.ins.map((item, index) => (
-        <ImageListItem key={index}>
-          <img
-            src={`${item.images}`}
-            loading="lazy"
-            height={'164px'}
-          />
-        </ImageListItem>
-      ))}
-      </ImageList>
-    </Box>
-  )
 
 
   // return <Box>

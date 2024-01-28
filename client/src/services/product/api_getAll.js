@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const prodBaseUrl = process.env.PROD_BASE_URL;
+const prodBaseUrl = "http://13.210.72.134:8080";
 const api_getAll = () => {
   return axios
     // .get("http://localhost:8080/api/product/getall")

@@ -1,10 +1,12 @@
 import axios from "axios";
 
+const prodBaseUrl = process.env.PROD_BASE_URL;
 const api_userLogout = () => {
   // console.log("called logout");
   return new Promise((resolve, reject) => {
     axios
-      .post("http://localhost:8080/api/user/logout")
+      // .post("http://localhost:8080/api/user/logout")
+      .post(`${prodBaseUrl}/api/user/logout`)
       .then((response) => {
         localStorage.removeItem("token");
         resolve(response);

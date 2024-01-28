@@ -1,8 +1,9 @@
 import axios from "axios";
 
+const prodBaseUrl = process.env.PROD_BASE_URL;
 const api_getFooter = () => {
   return axios
-    .get("http://localhost:8080/api/config/footer")
+    .get(`${prodBaseUrl}/api/config/footer`)
     .then((response) => {
       return response.data;
     })

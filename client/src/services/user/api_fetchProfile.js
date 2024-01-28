@@ -1,13 +1,15 @@
 import axios from "axios";
 
+const prodBaseUrl = process.env.PROD_BASE_URL;
+
 const api_fetchProfile = () => {
-  // console.log("called profile");
   return new Promise((resolve, reject) => {
     const token = localStorage.getItem("token");
     axios.defaults.headers.common["Authorization"] = `Bearer ${token}`;
 
     const axiosInstance = axios.create({
-      baseURL: "http://localhost:8080/api/",
+      // baseURL: "http://localhost:8080/api/",
+      baseURL: `${prodBaseUrl}/api/`,
       headers: {
         Authorization: `Bearer ${token}`,
         "Content-Type": "application/json",

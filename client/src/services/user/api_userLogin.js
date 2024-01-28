@@ -1,7 +1,7 @@
 import axios from "axios";
 
+const prodBaseUrl = process.env.PROD_BASE_URL;
 const api_userLogin = (email, password, rememberMe, navigate) => {
-  // console.log("called login");
   return new Promise((resolve, reject) => {
     const postData = {
       email,
@@ -9,7 +9,8 @@ const api_userLogin = (email, password, rememberMe, navigate) => {
       rememberMe,
     };
     axios
-      .post("http://localhost:8080/api/user/login", postData)
+      // .post("http://localhost:8080/api/user/login", postData)
+      .post(`${prodBaseUrl}/api/user/login`, postData)
       .then((response) => {
         const { token, is_admin } = response.data;
         if (token) {

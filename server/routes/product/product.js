@@ -14,6 +14,7 @@ const db = mysql.createConnection({
 });
 
 router.get('/api/product/getall', (req, res) => {
+  console.log(db);
   const query = `
   SELECT
     p.product_id,
@@ -45,9 +46,10 @@ router.get('/api/product/getall', (req, res) => {
 });
 
 router.get('/api/product/ins', (req, res) => {
-  db.query('/api/product/ins SELECT * FROM instagram', (error, results, fields) => {
+  db.query('SELECT * FROM instagram', (error, results, fields) => {
     if (error) {
       console.error('Error executing query:', error);
+      console.error('db info', db);
       res.status(500).send('Internal Server Error');
       return;
     }

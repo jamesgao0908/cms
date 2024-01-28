@@ -33,6 +33,7 @@ router.get('/api/product/getall', (req, res) => {
 
   db.query(query, (error, results) => {
     if (error) {
+      console.error('/api/product/getall Error executing query:', error);
       res.status(500).json({ message: 'Internal server error' });
     } else {
       results.forEach(element => {
@@ -44,14 +45,16 @@ router.get('/api/product/getall', (req, res) => {
 });
 
 router.get('/api/product/ins', (req, res) => {
-  db.query('SELECT * FROM instagram', (error, results, fields) => {
+  db.query('/api/product/ins SELECT * FROM instagram', (error, results, fields) => {
     if (error) {
+      console.error('Error executing query:', error);
       res.status(500).send('Internal Server Error');
       return;
     }
     res.json(results);
   });
 });
+
 
 router.get('/api/product/:productId', (req, res) => {
   const productId = req.params.productId;

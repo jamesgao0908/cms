@@ -1,0 +1,54 @@
+﻿<Properties StartupConfiguration="{E1571337-385C-4421-BDC2-7E2A918B9EB1}|Default">
+  <MultiItemStartupConfigurations />
+  <MonoDevelop.Ide.ItemProperties.cms PreferredExecutionTarget="/Applications/Firefox.app" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="cms/app.db">
+    <Files>
+      <File FileName="cms/ClientApp/src/components/Counter.js" Line="1" Column="1" />
+      <File FileName="cms/ClientApp/src/components/FetchData.js" Line="31" Column="20" />
+      <File FileName="cms/ClientApp/src/components/Home.js" Line="1" Column="1" />
+      <File FileName="cms/ClientApp/src/components/Layout.js" Line="1" Column="1" />
+      <File FileName="cms/ClientApp/src/components/NavMenu.css" Line="1" Column="1" />
+      <File FileName="cms/ClientApp/src/components/NavMenu.js" Line="1" Column="1" />
+      <File FileName="cms/ClientApp/src/App.test.js" Line="1" Column="1" />
+      <File FileName="cms/ClientApp/src/AppRoutes.js" Line="1" Column="1" />
+      <File FileName="cms/ClientApp/src/custom.css" Line="1" Column="1" />
+      <File FileName="cms/ClientApp/src/index.js" Line="1" Column="1" />
+      <File FileName="cms/ClientApp/src/reportWebVitals.js" Line="1" Column="1" />
+      <File FileName="cms/ClientApp/src/service-worker.js" Line="1" Column="1" />
+      <File FileName="cms/ClientApp/src/serviceWorkerRegistration.js" Line="1" Column="1" />
+      <File FileName="cms/ClientApp/src/setupProxy.js" Line="1" Column="1" />
+      <File FileName="cms/ClientApp/src/setupTests.js" Line="1" Column="1" />
+      <File FileName="cms/Controllers/OidcConfigurationController.cs" Line="1" Column="1" />
+      <File FileName="cms/Data/ApplicationDbContext.cs" Line="1" Column="1" />
+      <File FileName="cms/Data/Migrations/ApplicationDbContextModelSnapshot.cs" Line="1" Column="1" />
+      <File FileName="cms/Data/Migrations/00000000000000_CreateIdentitySchema.cs" Line="1" Column="1" />
+      <File FileName="cms/Pages/Error.cshtml" Line="1" Column="1" />
+      <File FileName="cms/Pages/_ViewImports.cshtml" Line="1" Column="1" />
+      <File FileName="cms/Models/ApplicationUser.cs" Line="9" Column="1" />
+      <File FileName="cms/app.db" />
+      <File FileName="cms/app.db-shm" />
+      <File FileName="cms/app.db-wal" />
+      <File FileName="cms/appsettings.json" Line="1" Column="1" />
+      <File FileName="cms/Program.cs" Line="1" Column="1" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="cms" expanded="True">
+            <Node name="cms" expanded="True">
+              <Node name="app.db" selected="True" />
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+      <Pad Id="MonoDevelop.Debugger.WatchPad">
+        <State />
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+</Properties>

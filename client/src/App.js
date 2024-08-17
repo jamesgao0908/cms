@@ -1,17 +1,10 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import { CartProvider } from "./utils/cartContext";
-import {
-  HomePage,
-  LoginPage,
-  ItemPage,
-  CartPage,
-  CheckoutPage,
-  ShopPage,
-} from "./Pages";
 import CustomBake from "./Pages/CustomBake";
 import FAQ from "./Pages/FAQ";
 import NotFound from './Pages/NotFound';
+import Dashboard from "./Pages/Dashboard";
 import AllComponents from "./components";
 import Box from "@mui/material/Box";
 import "./app.css";
@@ -20,6 +13,15 @@ import styled from "styled-components";
 import banner from "./static/image/mainbanner.jpg";
 import Instagram from "./Pages/Instagram";
 import { Typography } from "@mui/material";
+import {
+  HomePage,
+  LoginPage,
+  ItemPage,
+  CartPage,
+  CheckoutPage,
+  ShopPage,
+} from "./Pages";
+import Product from "./Pages/Product";
 
 const Banner = styled(Box)`
   margin: 0 auto;
@@ -36,35 +38,15 @@ const App = () => {
         <Routes>
           <Route path="/" element={<APPOnHomePage element={<HomePage />} />} />
           <Route path="*" element={<AppWithNavBar element={<NotFound />} />} />
+          <Route path="/product" element={<AppWithNavBar element={<Product />} />} />
+          <Route path="/dash" element={<Dashboard />} />
           <Route path="/login" element={<LoginPage />} />
-          <Route
-            path="/product/:id"
-            element={<AppWithNavBar element={<ItemPage />} />}
-          />
-          <Route
-            path="/cart"
-            element={<AppWithNavBar element={<CartPage />} />}
-          />
-          <Route
-            path="/checkout"
-            element={<AppWithNavBar element={<CheckoutPage />} />}
-          />
-          <Route
-            path="/shop"
-            element={<AppWithNavBar element={<ShopPage />} />}
-          />
-          <Route
-            path="/custombake"
-            element={<AppWithNavBar element={<CustomBake />} />}
-          />
-          <Route
-            path="/fqa"
-            element={<AppWithNavBar element={<FAQ />} />}
-          />
-          <Route
-            path="/ins"
-            element={<AppWithNavBar element={<Instagram />} />}
-          />
+          <Route path="/cart" element={<AppWithNavBar element={<CartPage />} />} />
+          <Route path="/checkout" element={<AppWithNavBar element={<CheckoutPage />} />} />
+          <Route path="/shop" element={<AppWithNavBar element={<ShopPage />} />} />
+          <Route path="/custombake" element={<AppWithNavBar element={<CustomBake />} />} />
+          <Route path="/fqa" element={<AppWithNavBar element={<FAQ />} />} />
+          <Route path="/ins" element={<AppWithNavBar element={<Instagram />} />} />
         </Routes>
       </CartProvider>
     </Router>
@@ -82,14 +64,6 @@ const AppWithNavBar = ({ element }) => (
     <Footer />
   </>
 );
-
-// const APPWithoutNavBar = ({ element }) => (
-//   <>
-//     {/* <AllComponents.TopBar /> */}
-//     <Box maxWidth="lg" m='0 auto'>{element}</Box>
-//     <Footer />
-//   </>
-// );
 
 const APPOnHomePage = ({ element }) => (
   <>

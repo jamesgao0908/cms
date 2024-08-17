@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { useGlobalConfigs } from "../store";
 // import styled from "styled-components";
-import { Box, Typography } from "@mui/material";
+import { Box, Typography, Grid } from "@mui/material";
 import ItemCard from "../components/ItemCard";
 import BannerCard from "../components/BannerCard";
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -15,7 +15,6 @@ const HomePage = () => {
   SwiperCore.use([Pagination, Autoplay]);
 
   useEffect(() => {
-    // console.log(state.product);
   })
 
   return (

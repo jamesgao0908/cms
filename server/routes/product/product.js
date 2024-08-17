@@ -14,7 +14,6 @@ const db = mysql.createConnection({
 });
 
 router.get('/api/product/getall', (req, res) => {
-  console.log(db);
   const query = `
   SELECT
     p.product_id,
@@ -34,7 +33,6 @@ router.get('/api/product/getall', (req, res) => {
 
   db.query(query, (error, results) => {
     if (error) {
-      console.error('/api/product/getall Error executing query:', error);
       res.status(500).json({ message: 'Internal server error' });
     } else {
       results.forEach(element => {
@@ -77,5 +75,32 @@ router.get('/api/product/:productId', (req, res) => {
   });
 });
 
+
+router.get('/api/product', (req, res) => {
+  db.query('SELECT * FROM products', (error, result) => {
+    if (error) {
+      res.status(500).json({ error: 'Error retrieving products' });
+    } else {
+      res.status(200).json(result);
+    }
+  });
+});
+
+router.post('/api/product/add', (req, res) => {
+  const { product_name, description, price, stock, category_id, thumbnail } = req.body;
+
+  // Execute SQL query to insert data into the products table
+  db.query('INSERT INTO products (product_name, description, price, stock, category_id, thumbnail) VALUES (?, ?, ?, ?, ?, ?)',
+    [product_name, description, price, stock, category_id, thumbnail],
+    (error, result) => {
+      if (error) {
+        console.error('Error inserting product:', error);
+        res.status(500).json({ error: 'Error inserting product', details: error });
+      } else {
+        console.log('Product inserted successfully');
+        res.status(200).json({ message: 'Product inserted successfully' });
+      }
+    });
+});
 
 module.exports = router;

@@ -2,9 +2,12 @@ const express = require('express');
 const cors = require('cors');
 
 const app = express();
+
 const http = require('http'); // 使用 http 服务器
 const httpServer = http.createServer(app); // 使用 http 服务器
+const bodyParser = require('body-parser');
 
+app.use(bodyParser.json({ limit: '10mb' }));
 app.use(express.json());
 app.use(cors());
 app.use(express.static('public'));
